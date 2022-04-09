@@ -12,20 +12,32 @@ import ExploreScreen from "./components/tuiter/explore/ExploreScreen";
 import HomeScreen from "./components/tuiter/HomeScreen";
 
 function App() {
-  return (
-      <BrowserRouter>
-        <div className="container">
-          <Routes>
-            <Route path={"/"} exact={true} element={<HelloWorld/>}/>
-            <Route path={"/hello"} exact={true} element={<HelloWorld/>}/>
-            <Route path={"/labs"} exact={true} element={<Labs/>}/>
-            <Route path={"/tuiter"} element={<Tuiter/>}/>
-              <Route path="explore" element={<ExploreScreen/>}/>
-              <Route index element={<HomeScreen/>}/>
-          </Routes>
-        </div>
-      </BrowserRouter>
-  );
+ return (
+   <BrowserRouter>
+     <div className="container">
+       <Routes>
+         <Route path="/">
+           <Route path="labs"
+                  element={<Labs/>}/>
+           <Route path="hello"
+                  element={<HelloWorld/>}/>
+           <Route path="tuiter"
+                  element={<Tuiter/>}>
+             <Route index
+                    element={<HomeScreen/>}/>
+             <Route path="explore"
+                    element={<ExploreScreen/>}/>
+//              <Route path="notifications" 
+//                     element={<NotificationScreen/>}/>
+//              ...
+           </Route>
+         </Route>
+       </Routes>
+     </div>
+   </BrowserRouter>
+ );
 }
+
+
 
 export default App;
