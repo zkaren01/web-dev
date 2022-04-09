@@ -16,22 +16,13 @@ function App() {
    <BrowserRouter>
      <div className="container">
        <Routes>
-         <Route path="/">
-           <Route path="labs"
-                  element={<Labs/>}/>
-           <Route path="hello"
-                  element={<HelloWorld/>}/>
-           <Route path="tuiter"
-                  element={<Tuiter/>}>
-             <Route index
-                    element={<HomeScreen/>}/>
-             <Route path="explore"
-                    element={<ExploreScreen/>}/>
-//              <Route path="notifications" 
-//                     element={<NotificationScreen/>}/>
-//              ...
-           </Route>
-         </Route>
+            <Route path={"/"} exact={true} element={<HelloWorld/>}/>
+            <Route path={"/hello"} exact={true} element={<HelloWorld/>}/>
+            <Route path={"/labs"} exact={true} element={<Labs/>}/>
+            <Route path={"/tuiter"} element={<Tuiter/>}>
+              <Route path="explore" element={<ExploreScreen/>}/>
+              <Route index element={<HomeScreen/>}/>
+            </Route>
        </Routes>
      </div>
    </BrowserRouter>
