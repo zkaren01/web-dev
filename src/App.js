@@ -2,24 +2,21 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Welcome to Web Dev!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ return (
+   <BrowserRouter>
+     <div className="container">
+       <Routes>
+            <Route path={"/"} exact={true} element={<HelloWorld/>}/>
+            <Route path={"/hello"} exact={true} element={<HelloWorld/>}/>
+            <Route path={"/labs"} exact={true} element={<Labs/>}/>
+            <Route path={"/tuiter"} element={<Tuiter/>}>
+              <Route path="explore" element={<ExploreScreen/>}/>
+              <Route index element={<HomeScreen/>}/>
+            </Route>
+       </Routes>
+     </div>
+   </BrowserRouter>
+ );
 }
 
 export default App;
